@@ -1,0 +1,62 @@
+.promise-section {
+  background: var(--bg-mid);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Soft lavender moonlight glow — centre */
+.promise-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(600px, 90vw);
+  height: min(500px, 75vw);
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(184, 164, 255, 0.06) 0%,
+    rgba(126, 184, 255, 0.03) 50%,
+    transparent 72%
+  );
+  pointer-events: none;
+}
+
+.promise-heading {
+  margin: 0.6rem 0 3.5rem;
+  font-style: italic;
+}
+
+.promise-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 580px;
+  position: relative;
+}
+
+.promise-para {
+  font-family: var(--font-sans);
+  font-size: clamp(0.93rem, 1.45vw, 1.04rem);
+  line-height: 2;
+  color: var(--text-secondary);
+  font-weight: 300;
+}
+
+/* Key paragraphs — lavender left border */
+.promise-key {
+  font-family: var(--font-serif);
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text-primary);
+  padding-left: 1.4rem;
+  border-left: 1px solid rgba(184, 164, 255, 0.25);
+  line-height: 1.85;
+}
+
+@media (max-width: 600px) {
+  .promise-paragraphs { gap: 1.5rem; }
+  .promise-key { padding-left: 1rem; font-size: 1rem; }
+}

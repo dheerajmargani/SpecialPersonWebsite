@@ -1,0 +1,105 @@
+.opening {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-deep);
+  overflow: hidden;
+}
+
+/* Two-tone atmospheric glow — blue above, lavender center */
+.opening-glow {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(800px, 130vw);
+  height: min(560px, 90vw);
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 50% 25%,
+    rgba(100, 150, 255, 0.09)  0%,
+    rgba(180, 164, 255, 0.055) 38%,
+    rgba(240, 184, 216, 0.02)  62%,
+    transparent 78%
+  );
+  pointer-events: none;
+  animation: opening-breathe 9s ease-in-out infinite alternate;
+}
+
+@keyframes opening-breathe {
+  from { transform: translateX(-50%) scale(0.94); opacity: 0.82; }
+  to   { transform: translateX(-50%) scale(1.07); opacity: 1; }
+}
+
+/* Warm haze at bottom — faint pink-violet tint */
+.opening-haze {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 38%;
+  background: linear-gradient(
+    to top,
+    rgba(18, 14, 46, 0.5) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.opening-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 clamp(1.5rem, 6vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* Quiet pre-title */
+.opening-subtitle {
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 1.6vw, 0.85rem);
+  font-weight: 300;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  font-style: italic;
+  margin-bottom: 2.2rem;
+}
+
+/* The name — luminous but not glowing */
+.opening-name {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 9vw, 7rem);
+  font-weight: 400;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+  line-height: 1.08;
+}
+
+/* Enter button wrapper */
+.opening-enter-wrap {
+  margin-top: 3rem;
+}
+
+/* Bottom footnote */
+.opening-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  z-index: 2;
+}
+
+@media (max-width: 480px) {
+  .opening-name     { font-size: clamp(2.2rem, 13vw, 3.8rem); letter-spacing: 0.03em; }
+  .opening-subtitle { font-size: 0.76rem; }
+}

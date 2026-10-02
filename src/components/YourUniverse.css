@@ -1,0 +1,98 @@
+.universe-section {
+  background: var(--bg-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Soft lavender atmospheric glow — bottom left */
+.universe-section::before {
+  content: '';
+  position: absolute;
+  bottom: 5%;
+  left: -5%;
+  width: min(600px, 90vw);
+  height: min(400px, 60vw);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(184, 164, 255, 0.05) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+.universe-subtitle { max-width: 420px; }
+
+/* 4-column grid */
+.universe-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  margin-top: 4rem;
+  padding: 0 var(--side-pad);
+}
+
+/* Warm glass card — blue tint with lavender border */
+.u-card {
+  border: 1px solid rgba(126, 184, 255, 0.1);
+  border-radius: var(--radius-md);
+  background: rgba(14, 20, 52, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 2.2rem 1.6rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  cursor: default;
+  transition:
+    border-color 0.4s ease,
+    background   0.4s ease,
+    transform    0.35s var(--ease-cinematic),
+    box-shadow   0.4s ease;
+}
+
+.u-card:hover {
+  border-color: rgba(184, 164, 255, 0.22);
+  background: rgba(18, 26, 64, 0.8);
+  box-shadow:
+    0 8px 36px rgba(10, 16, 50, 0.6),
+    0 0 0 1px rgba(126, 184, 255, 0.05) inset;
+}
+
+.u-card-emoji {
+  font-size: 1.8rem;
+  line-height: 1;
+  user-select: none;
+}
+
+.u-card-label {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+  opacity: 0.7;
+}
+
+.u-card-desc {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  font-weight: 300;
+}
+
+/* Responsive */
+@media (max-width: 880px) {
+  .universe-cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 500px) {
+  .universe-cards { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+  .u-card { padding: 1.5rem 1.1rem 1.3rem; }
+  .u-card-emoji { font-size: 1.5rem; }
+}
+
+@media (max-width: 340px) {
+  .universe-cards { grid-template-columns: 1fr; }
+}

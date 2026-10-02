@@ -1,0 +1,87 @@
+.letter-section {
+  background: var(--bg-letter);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Warm pink-lavender glow — top right corner */
+.letter-section::before {
+  content: '';
+  position: absolute;
+  top: -5%;
+  right: -5%;
+  width: min(600px, 90vw);
+  height: min(500px, 75vw);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(240, 184, 216, 0.05) 0%,
+    rgba(184, 164, 255, 0.03) 50%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* The letter paper */
+.letter-paper {
+  max-width: 620px;
+  padding: 3.5rem clamp(2rem, 5vw, 4rem);
+  background: rgba(14, 16, 40, 0.72);
+  border: 1px solid rgba(184, 164, 255, 0.1);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Faint warm lavender tint along top edge of paper */
+.letter-paper::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 100px;
+  background: linear-gradient(
+    to bottom,
+    rgba(184, 164, 255, 0.03) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.letter-salutation {
+  font-family: var(--font-hand);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.letter-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  position: relative;
+}
+
+.letter-para {
+  font-family: var(--font-sans);
+  font-size: clamp(0.92rem, 1.4vw, 1.02rem);
+  line-height: 1.95;
+  color: var(--text-secondary);
+  font-weight: 300;
+}
+
+.letter-signature {
+  font-family: var(--font-hand);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--accent-pink);
+  margin-top: 2rem;
+  opacity: 0.85;
+  position: relative;
+}
+
+@media (max-width: 600px) {
+  .letter-paper { padding: 2.2rem 1.4rem; }
+  .letter-para  { font-size: 0.9rem; }
+}

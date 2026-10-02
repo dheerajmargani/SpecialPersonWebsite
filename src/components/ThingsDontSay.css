@@ -1,0 +1,76 @@
+/* Intimacy. Warmth. Not sadness. */
+
+.things-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--bg-deep);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Soft lavender + pink centre glow — warmth in the dark */
+.things-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(700px, 95vw);
+  height: min(500px, 75vw);
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(184, 164, 255, 0.055) 0%,
+    rgba(240, 184, 216, 0.025) 45%,
+    transparent 72%
+  );
+  pointer-events: none;
+}
+
+.things-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2.8rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* Base */
+.things-sentence {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 3vw, 2.1rem);
+  font-style: italic;
+  line-height: 1.4;
+  color: rgba(240, 240, 250, 0.28);
+}
+
+/* Roles */
+.things-opener {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-size: clamp(0.75rem, 1.5vw, 0.88rem);
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.things-main   { color: rgba(240, 240, 250, 0.45); }
+.things-bridge { font-size: clamp(1rem, 2.2vw, 1.6rem); color: rgba(240, 240, 250, 0.28); }
+.things-close  { color: rgba(240, 240, 250, 0.4); }
+
+/* The line that lands — lavender tint */
+.things-key {
+  font-size: clamp(1.5rem, 4vw, 2.8rem);
+  color: var(--text-primary);
+  font-style: italic;
+  letter-spacing: -0.015em;
+}
+
+@media (max-width: 600px) {
+  .things-inner    { gap: 2rem; }
+  .things-sentence { font-size: 1.1rem; }
+  .things-opener   { font-size: 0.7rem; }
+  .things-key      { font-size: 1.4rem; }
+  .things-bridge   { font-size: 0.95rem; }
+}

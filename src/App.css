@@ -1,0 +1,11 @@
+/* App-level layout styles */
+#main-content {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Ensure sections stack cleanly */
+#main-content > section {
+  width: 100%;
+}

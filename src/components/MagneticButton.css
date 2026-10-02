@@ -1,0 +1,40 @@
+.magnetic-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 2.2rem;
+  border: 1px solid rgba(126, 184, 255, 0.22);
+  border-radius: 50px;
+  background: rgba(100, 150, 255, 0.05);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    border-color 0.4s ease,
+    background   0.4s ease,
+    color        0.35s ease,
+    box-shadow   0.4s ease,
+    transform    0.3s var(--ease-cinematic);
+}
+
+.magnetic-btn:hover {
+  border-color: rgba(184, 164, 255, 0.45);
+  background: rgba(184, 164, 255, 0.08);
+  color: var(--text-primary);
+  box-shadow: 0 0 28px rgba(126, 184, 255, 0.1);
+}
+
+.magnetic-btn.enter-btn {
+  padding: 1rem 2.8rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+}
+
+@media (pointer: coarse) {
+  .magnetic-btn { transition: border-color 0.2s ease, color 0.2s ease; }
+}

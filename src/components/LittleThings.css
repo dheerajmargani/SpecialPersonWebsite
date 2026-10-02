@@ -1,0 +1,104 @@
+.lt-section {
+  background: var(--bg-lighter);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Very faint blue haze — right side */
+.lt-section::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  right: -8%;
+  width: min(480px, 75vw);
+  height: min(480px, 75vw);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(100, 150, 255, 0.04) 0%,
+    transparent 68%
+  );
+  pointer-events: none;
+}
+
+.lt-subtitle { max-width: 480px; }
+
+.lt-list {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Row */
+.lt-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  align-items: baseline;
+  gap: 1.8rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(126, 184, 255, 0.06);
+  cursor: default;
+  position: relative;
+}
+
+.lt-row:first-child {
+  border-top: 1px solid rgba(126, 184, 255, 0.06);
+}
+
+/* Constellation connector line */
+.lt-row::before {
+  content: '';
+  position: absolute;
+  left: 42px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(126, 184, 255, 0.1) 20%,
+    rgba(184, 164, 255, 0.07) 80%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.lt-row:first-child::before { top: 50%; }
+.lt-row:last-child::before  { bottom: 50%; }
+
+/* Number — soft blue-lavender tint on hover */
+.lt-row:hover .lt-number { color: rgba(126, 184, 255, 0.2); }
+
+.lt-number {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 400;
+  color: rgba(126, 184, 255, 0.07);
+  line-height: 1;
+  user-select: none;
+  transition: color 0.5s ease;
+}
+
+/* Statement — bright, readable */
+.lt-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 2.2vw, 1.55rem);
+  font-style: italic;
+  color: var(--text-primary);
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .lt-row    { grid-template-columns: 60px 1fr; gap: 1rem; padding: 1.6rem 0; }
+  .lt-number { font-size: 2.5rem; }
+  .lt-text   { font-size: 0.98rem; }
+  .lt-row::before { left: 28px; }
+}
+
+@media (max-width: 360px) {
+  .lt-row    { grid-template-columns: 1fr; gap: 0.4rem; }
+  .lt-number { font-size: 2rem; }
+  .lt-row::before { display: none; }
+}
